@@ -50,7 +50,7 @@ RSpec.describe Cart, type: :model do
     expect(cart.total_price).to be 800
   end
 
-  it "is a discount of NT$ 100 for a NT$ 1,000" do
+  it "has a discount of NT$ 100 for a NT$ 1,000" do
     p1 = Product.create(name: "P1", price: 100)
     p2 = Product.create(name: "P2", price: 200)
     cart = Cart.new
@@ -62,6 +62,19 @@ RSpec.describe Cart, type: :model do
     Timecop.travel(t) {
       expect(cart.total_price).to be (1400 - 100)
     }
+  end
 
+  it "has a discount of 10% on Christmas day" do
+    p1 = Product.create(name: "P1", price: 100)
+    p2 = Product.create(name: "P2", price: 200)
+    cart = Cart.new
+
+    4.times { cart.add_item(p1.id) }
+    5.times { cart.add_item(p2.id) }
+
+    t = Time.local(2017, 12, 25, 0, 0)
+    Timecop.travel(t) {
+      expect(cart.total_price).to be 1260
+    }
   end
 end

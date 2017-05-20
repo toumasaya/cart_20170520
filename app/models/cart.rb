@@ -25,6 +25,8 @@ class Cart
 
     if Time.now.month == 6 && total >= 1000
       total -= 100
+    elsif Time.now.month == 12 && Time.now.day == 25
+      total = (total * 0.9).round
     else
       total
     end
