@@ -1,0 +1,16 @@
+.row
+  .col-md-12
+    = render partial: "shared/breadcrumb"
+  .col-md-6
+    figure.figure
+      = image_tag @product.image, class: "figure-img img-fluid rounded"
+  .col-md-6
+    h1= @product.name
+    p= @product.description
+    p.font-weight-bold
+      |NT$:
+      span.text-danger.h4= @product.price
+    = link_to "#", class: "btn btn-lg btn-success" do
+      |Add to cart
+      = icon('shopping-cart')
+

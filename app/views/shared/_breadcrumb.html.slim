@@ -1,0 +1,4 @@
+nav.breadcrumb
+  = link_to "Home", products_path, class: "breadcrumb-item"
+  / = content_tag :span, @product.name, class: "breadcrumb-item.active"
+  span.breadcrumb-item.active= @product.name
