@@ -21,6 +21,12 @@ class Cart
   end
 
   def total_price
-    items.reduce(0) { |total, item| total + item.subtotal_price }
+    total = items.reduce(0) { |total, item| total + item.subtotal_price }
+
+    if Time.now.month == 6 && total >= 1000
+      total -= 100
+    else
+      total
+    end
   end
 end
