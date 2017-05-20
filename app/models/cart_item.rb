@@ -14,4 +14,8 @@ class CartItem
   def product
     Product.find_by(id: product_id)
   end
+
+  def subtotal_price
+    product.price * quantity
+  end
 end
