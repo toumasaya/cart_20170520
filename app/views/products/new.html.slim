@@ -1,0 +1,10 @@
+.row
+  .col-md-6.offset-md-3
+    h1.lead Create a new product
+
+    = simple_form_for(@product) do |f|
+      = f.input :name, label: "Enter a product name", placeholder: "Toy"
+      = f.input :description, label: "Write some product description", placeholder: "This is fun"
+      = f.input :price, label: "Enter product price", placeholder: "3000"
+      = f.input :image, label: "Product image URL", placeholder: "http://xxx.jpg"
+      = f.button :button, class: "btn btn-primary btn-block"

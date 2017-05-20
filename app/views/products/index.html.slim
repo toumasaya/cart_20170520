@@ -1,0 +1,14 @@
+h1.sr-only Products
+
+.row
+  - @products.each do |product|
+    .col-sm-3
+      .card
+        = image_tag product.image, class: "card-img-top"
+        .card-block
+          h2.card-title= product.name
+          p.card-text= truncate(product.description)
+          .btn-group
+            = link_to "Detail", product_path(product), class: "btn btn-sm btn-secondary"
+            = link_to "Add to cart", "#", class: "btn btn-sm btn-danger"
+          = link_to "delete", product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-link"

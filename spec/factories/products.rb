@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  price       :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text
+#  image       :string
+#
+
 FactoryGirl.define do
   factory :product do
     # 如果沒有加 {} 會做出一樣的結果

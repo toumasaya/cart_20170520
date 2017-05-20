@@ -1,0 +1,20 @@
+nav.navbar.navbar-toggleable-md.navbar-inverse.bg-danger
+  button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+    span.navbar-toggler-icon
+  = link_to "JohnBarrr", products_path, class: "navbar-brand"
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        = link_to "Books", "#", class: "nav-link"
+      li.nav-item
+        = link_to "3C", "#", class: "nav-link"
+      li.nav-item
+        = link_to "Foods", "#", class: "nav-link"
+    span.navbar-text online shopping 
+
+nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+  ul.navbar-nav.mr-auto
+    li.nav-item
+      = link_to "New Product", new_product_path, class: "btn btn-secondary"
+  span.navbar-text Hello, admin!
+      
