@@ -12,5 +12,5 @@ h1.sr-only Products
           / .btn-group
           = link_to "Detail", product_path(product), class: "btn btn-sm btn-block btn-secondary"
           = link_to "Add to cart", "#", class: "btn btn-sm btn-block btn-danger"
-          = link_to "edit", product_path(product), class: "btn btn-sm btn-link"
+          = link_to "edit", edit_product_path(product), class: "btn btn-sm btn-link"
           = link_to "delete", product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-link"

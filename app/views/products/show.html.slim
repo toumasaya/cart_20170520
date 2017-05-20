@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    = render partial: "shared/breadcrumb"
+    = render partial: "shared/breadcrumb", locals: { product: @product }
   .col-md-6
     figure.figure
       = image_tag @product.image, class: "figure-img img-fluid rounded"
