@@ -10,7 +10,7 @@
     p.font-weight-bold
       |NT$:
       span.text-danger.h4= @product.price
-    = link_to "#", class: "btn btn-lg btn-success" do
+    = link_to add_cart_path(product), method: :post, class: "btn btn-lg btn-success" do
       |Add to cart
       = icon('shopping-cart')
 
