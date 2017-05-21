@@ -14,4 +14,9 @@ class CartsController < ApplicationController
     # debugger
     redirect_to products_path, success: "Add to cart successfully"
   end
+
+  def destroy
+    session[:cart9527] = nil
+    redirect_to products_path, success: "Cart is empty now!"
+  end
 end

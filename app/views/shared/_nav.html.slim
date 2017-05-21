@@ -12,7 +12,7 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-danger
         = link_to "Foods", "#", class: "nav-link"
     span.navbar-text online shopping |
     span.navbar-text.cart-session
-      = link_to "Cart", cart_path
+      = link_to "Cart", cart_path, class: "btn-link"
       = icon('shopping-cart fa-lg')
       / .badge.badge-pill.badge-inverse= session[:cart9527]
       .badge.badge-pill.badge-inverse= @cart.items.count

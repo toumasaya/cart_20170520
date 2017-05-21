@@ -1,23 +1,30 @@
 h1 Your Cart
+= link_to "Delete cart", cart_path, method: :delete, class: "btn btn-sm btn-link" 
 
 table.table
   thead
     tr
       th Product name
-      th Quantity
-      th Price
-      th Subtotal
+      th.text-right Quantity
+      th.text-right Price
+      th.text-right Subtotal
   tbody
     - @cart.items.each do |item|
       tr
         td= item.product.name
-        td= item.quantity
-        td= item.product.price
-        td= item.subtotal_price
+        td.text-right= item.quantity
+        td.text-right= item.product.price
+        td.text-right= item.subtotal_price
   tfoot
     tr
-      td(colspan="3") Total Price
-      td= @cart.total_price
+      td.text-right(colspan="3") Total Price
+      td.text-right= @cart.total_price
 
-= link_to "Keep shopping", products_path, class: "btn btn-primary"
-= link_to "Checkout", "#", class: "btn btn-danger"
+= link_to "Keep shopping", products_path, class: "btn btn-success"
+
+/ = link_to "Checkout", "#", class: "btn btn-danger" unless @cart.empty?
+
+- if @cart.empty?
+  = link_to "Checkout", "#", class: "btn btn-danger disabled"
+-else
+  = link_to "Checkout", "#", class: "btn btn-danger"
