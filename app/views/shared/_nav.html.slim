@@ -10,7 +10,10 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-danger
         = link_to "3C", "#", class: "nav-link"
       li.nav-item
         = link_to "Foods", "#", class: "nav-link"
-    span.navbar-text online shopping 
+    span.navbar-text online shopping |
+    span.navbar-text.cart-session
+      = icon('shopping-cart fa-lg')
+      .badge.badge-pill.badge-inverse 87
 
 nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
   ul.navbar-nav.mr-auto

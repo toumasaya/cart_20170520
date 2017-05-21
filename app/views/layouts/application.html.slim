@@ -11,4 +11,8 @@ html
   body
     = render partial: "shared/nav"
     .container.page
+      .row
+        .col-sm-12
+          - flash.each do |msg_type, msg|
+            = content_tag(:div, msg, class: "alert alert-#{msg_type}")
       = yield
