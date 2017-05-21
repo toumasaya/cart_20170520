@@ -15,8 +15,11 @@ class OrdersController < ApplicationController
       # order 成立後
       # 1. 付錢
       # 2. 清空 cart
-      # 3. 回到 products_path
       session[:cart9527] = nil
+      # 2.5 寄信
+      # OrderMailer.order_confirm(@order).deliver_later
+      OrderMailer.order_confirm(@order).deliver_now
+      # 3. 回到 products_path
       redirect_to products_path, success: "Thank you! Bye!"
     else
       render "carts/checkout"
