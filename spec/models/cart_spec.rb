@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
 
+  let(:cart) { Cart.new }
+
   describe "Basic feature" do
-    let(:cart) { Cart.new }
     let(:p1) { FactoryGirl.create(:product, :price_100) }
     let(:p2) { FactoryGirl.create(:product, :price_200) }
 
@@ -59,6 +60,31 @@ RSpec.describe Cart, type: :model do
       t = Time.local(2017, 12, 25, 0, 0)
       Timecop.travel(t) {
         expect(cart.total_price).to be 1260
+      }
+    end
+  end
+
+  describe "Advance feature" do
+
+    it "can convert to Hash and save in Session" do
+      3.times { cart.add_item 1 }
+      2.times { cart.add_item 2 }
+
+      expect(cart.to_hash).to eq cart_hash
+    end
+
+    it "can convert to Array and save in Cart" do
+      
+    end
+
+    private
+
+    def cart_hash
+      expected_hash = {
+        "items" => [
+          { "product_id" => 1, "quantity" => 3 },
+          { "product_id" => 2, "quantity" => 2 }
+        ]
       }
     end
   end

@@ -31,4 +31,18 @@ class Cart
       total
     end
   end
+
+  def to_hash
+    # all_items = [
+    #   { "product_id" => 1, "quantity" => 3 },
+    #   { "product_id" => 2, "quantity" => 2 }
+    # ]
+
+    all_items = items.map { |item| {
+      "product_id" => item.product_id,
+      "quantity" => item.quantity
+    }}
+
+    { "items" => all_items }
+  end
 end
