@@ -1,0 +1,23 @@
+h1 Your Cart
+
+table.table
+  thead
+    tr
+      th Product name
+      th Quantity
+      th Price
+      th Subtotal
+  tbody
+    - @cart.items.each do |item|
+      tr
+        td= item.product.name
+        td= item.quantity
+        td= item.product.price
+        td= item.subtotal_price
+  tfoot
+    tr
+      td(colspan="3") Total Price
+      td= @cart.total_price
+
+= link_to "Keep shopping", products_path, class: "btn btn-primary"
+= link_to "Checkout", "#", class: "btn btn-danger"

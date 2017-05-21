@@ -12,9 +12,20 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-danger
         = link_to "Foods", "#", class: "nav-link"
     span.navbar-text online shopping |
     span.navbar-text.cart-session
+      = link_to "Cart", cart_path
       = icon('shopping-cart fa-lg')
       / .badge.badge-pill.badge-inverse= session[:cart9527]
       .badge.badge-pill.badge-inverse= @cart.items.count
+    / ul.navbar-nav
+    /   li.nav-item.dropdown
+    /     a#navbarDropdownMenuLink.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="http://example.com" 
+    /     | Dropdown link
+    /     .dropdown-menu aria-labelledby="navbarDropdownMenuLink" 
+    /       a.dropdown-item href="#"  Action
+    /       a.dropdown-item href="#"  Another action
+    /       a.dropdown-item href="#"  Something else here
+
+
 
 nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
   ul.navbar-nav.mr-auto
