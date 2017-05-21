@@ -74,7 +74,11 @@ RSpec.describe Cart, type: :model do
     end
 
     it "can convert to Array and save in Cart" do
-      
+      cart = Cart.from_hash(cart_hash) # => Cart.new, build a new Cart, cause "Build", use Cart class
+
+      expect(cart.items.length).to be 2
+      expect(cart.items.first.product_id).to be 1
+      expect(cart.items.last.quantity).to be 2
     end
 
     private
