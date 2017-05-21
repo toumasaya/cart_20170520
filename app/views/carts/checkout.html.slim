@@ -1,2 +1,11 @@
 h1 Checkout
 
+= render partial: "cart", locals: { cart: @cart }
+
+.row
+  .col-md-6.offset-md-3
+    = simple_form_for(@order) do |f|
+      = f.input :recipient, label: "Enter a recipient name", placeholder: "Jerry"
+      = f.input :tel, label: "Enter the tel", placeholder: "0912345678"
+      = f.input :email, label: "Enter email", placeholder: "jerry@xxx.com"
+      = f.button :button, class: "btn btn-primary btn-block"

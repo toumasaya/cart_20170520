@@ -1,24 +1,7 @@
 h1 Your Cart
 = link_to "Delete cart", cart_path, method: :delete, class: "btn btn-sm btn-link" 
 
-table.table
-  thead
-    tr
-      th Product name
-      th.text-right Quantity
-      th.text-right Price
-      th.text-right Subtotal
-  tbody
-    - @cart.items.each do |item|
-      tr
-        td= item.product.name
-        td.text-right= item.quantity
-        td.text-right= item.product.price
-        td.text-right= item.subtotal_price
-  tfoot
-    tr
-      td.text-right(colspan="3") Total Price
-      td.text-right= @cart.total_price
+= render partial: "cart", locals: { cart: @cart }
 
 = link_to "Keep shopping", products_path, class: "btn btn-success"
 
