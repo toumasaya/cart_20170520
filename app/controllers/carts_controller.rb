@@ -7,12 +7,16 @@ class CartsController < ApplicationController
     # 應該是要先去把 session 裡的 hash 抓回購物車（如果有東西的話）
     # cart = Cart.from_hash(session[:cart9527])
     # init_cart
-    cart.add_item(params[:id])
+    @cart.add_item(params[:id])
 
-    session[:cart9527] = cart.to_hash
+    session[:cart9527] = @cart.to_hash
 
     # debugger
     redirect_to products_path, success: "Add to cart successfully"
+  end
+
+  def checkout
+    
   end
 
   def destroy
