@@ -29,10 +29,10 @@ class Order < ApplicationRecord
       # transitions from: :pending, to: :paid
       transitions :from => :pending, :to => :paid
 
-      # after_transitions do
-      #   # 付款後發送簡訊
-      #   puts "send SMS to #{tel}"
-      # end
+      after do
+        # 付款後發送簡訊
+        puts "send SMS to #{tel}"
+      end
     end
 
     event :ship do
