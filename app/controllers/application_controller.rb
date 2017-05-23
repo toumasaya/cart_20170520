@@ -4,10 +4,7 @@ class ApplicationController < ActionController::Base
   # 所有 controller 都會執行
   before_action :init_cart
 
-  add_flash_types :success
-  add_flash_types :warning
-  add_flash_types :danger
-  add_flash_types :info
+  add_flash_types :success, :warning, :danger, :info
 
   private
 
